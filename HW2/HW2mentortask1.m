@@ -1,0 +1,14 @@
+RGB = imread('D:/data/3.jpg');
+I = rgb2gray(RGB);
+figure;
+imshow(I);
+J = imnoise(I,'gaussian');
+figure;
+imshow(J);
+K = medfilt2(J,[3,3]);
+figure;
+imshow(K);
+H = fspecial('motion',20,45);
+G = imfilter(K,H,'replicate'); 
+A = fspecial('laplacian',0.001);
+B = imfilter(G,A,'replicate');

@@ -1,0 +1,13 @@
+im1 = imread('D:/data/1.jpg');
+im2 = imread('D:/data/2.jpg');
+im3 = imread('D:/data/3.jpg');
+im4 = imread('D:/data/4.jpg');
+im5 = imread('D:/data/blue_image.jpg');
+im6 = imread('D:/data/red_image.jpg');
+s1 = size(im1);
+s2 = size(im2);
+s3 = size(im3);
+s4 = size(im4);
+I = ScaleByMax(im6);
+figure;
+imshow(I);

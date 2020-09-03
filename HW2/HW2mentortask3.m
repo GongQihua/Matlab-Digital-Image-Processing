@@ -1,0 +1,16 @@
+I = imread('D:/data/3.jpg');
+J = fspecial('prewitt');
+H = fspecial('sobel');
+A = imfilter(I,J,'replicate');
+B = imfilter(I,H,'replicate');
+figure;
+subplot(2,2,1);imshow(A);
+subplot(2,2,2);imshow(B);
+k = rot90(I);
+E = fspecial('prewitt');
+F = fspecial('sobel');
+C = imfilter(k,E,'replicate');
+D = imfilter(k,F,'replicate');
+figure;
+subplot(2,2,1);imshow(C);
+subplot(2,2,2);imshow(D);

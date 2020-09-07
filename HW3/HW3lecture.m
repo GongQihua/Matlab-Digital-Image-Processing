@@ -1,0 +1,16 @@
+im1 = imread('D:\Matlab-Digital-Image-Processing\img_source\5.jpg');
+im2 = imread('D:\Matlab-Digital-Image-Processing\img_source\7.jpg');
+H = fspecial('gaussian',[5,5]);
+M1 = imfilter(im1,H,'replicate');
+M2 = imfilter(im2,H,'replicate');
+YCBCR1 = rgb2ycbcr(M1);
+YCBCR2 = rgb2ycbcr(M2);
+X1 = imfilter(YCBCR1(:,:,1),H,'replicate');
+X2 = imfilter(YCBCR2(:,:,1),H,'replicate');
+YCBCR1(:,:,1) = X1;
+YCBCR2(:,:,1) = X2;
+RGB1 = ycbcr2rgb(YCBCR1);
+RGB2 = ycbcr2rgb(YCBCR2);
+figure;
+subplot(1,2,1),imshow(RGB1);
+subplot(1,2,2),imshow(RGB2);

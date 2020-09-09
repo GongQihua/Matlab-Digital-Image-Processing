@@ -2,7 +2,7 @@ close all
 clear all
 clc
 
-I = imread('D:\Matlab-Digital-Image-Processing\img_source\6.jpg');
+I = imread('D:\Matlab-Digital-Image-Processing\img_source\3.jpg');
 imshow(I)
 title('original image')
 

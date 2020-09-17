@@ -22,6 +22,7 @@ K2 = dct2(J2);
 figure;
 subplot(2,2,1),imshow(K1);
 subplot(2,2,2),imshow(K2);
+
 J3 = wiener2(J1,[5 5]);
 figure;
 imshow(J3);

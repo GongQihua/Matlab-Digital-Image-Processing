@@ -9,7 +9,7 @@ imshowpair(Im,noisyIm,'montage');
 title('Original Image (left) and Noisy Image (right)');
 imd = dct2(noisyIm);
 imdl = log10(abs(imd)+1);
-s1 = size(Im)';
+s1 = size(Im');
 
 x = [1:s1(1)];
 y = [1:s1(2)];
@@ -21,18 +21,18 @@ surface(x,y,imdl);
 view(60,45);
 
 sigma = imd(193:end,193:end).*imd(193:end,193:end);
-s3 = size(sigma)'
+s3 = size(sigma');
 
 xs3 = [1:s3(1)];
 ys3 = [1:s3(2)];
 
 [xs3,ys3] = meshgrid(xs3,ys3);
 
-figure
-surface(xs3,ys3,sigma)
-view(60,45)
+figure;
+surface(xs3,ys3,sigma);
+view(60,45);
 NoiseVariance = mean(mean(sigma));
-beta = 3.0
+beta = 3.0;
 NoiseVariance = beta*NoiseVariance;
 SignalVariance = imd.*imd + 0.001;
 WienerFilter = 1 + (NoiseVariance./SignalVariance);
@@ -40,7 +40,7 @@ WienerFilter = 1./WienerFilter;
 FilteredImageDCT = imd.*WienerFilter;
 FilteredImage = idct2(FilteredImageDCT);
 imo = uint8(FilteredImage);
-close all
+
 
 figure
 

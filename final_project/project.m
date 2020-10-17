@@ -59,13 +59,11 @@ wiener_filter2 = 1./wiener_filter2;
 filtered_dct1 = dct_im1.*wiener_filter1;
 filtered_dct2 = dct_im2.*wiener_filter2;
 % Inverse DCT transform to reconstruct image
-filtered_dct_image1 = idct2(filtered_dct1);
-filtered_dct_image1 = 255.*imadjust(filtered_dct_image1, [], [0,1]);
+filtered_dct_image1 = idct2(filtered_dct1)/255;
 figure;
 imshowpair(J1, uint8(filtered_dct_image1), 'montage');
 title('Noisy Image (left), DCT filtered (right)');
-filtered_dct_image2 = idct2(filtered_dct2);
-filtered_dct_image2 = 255.*imadjust(filtered_dct_image2, [], [0,1]);
+filtered_dct_image2 = idct2(filtered_dct2)/255;
 figure;
 imshowpair(J2, uint8(filtered_dct_image2), 'montage');
 title('Noisy Image (left), DCT filtered (right)');
